@@ -6,7 +6,7 @@ var feed = 0;
 
 document.addEventListener('DOMContentLoaded', function(event) {
     var request = new XMLHttpRequest();
-    request.open('GET', 'bridge/script/data.json', true);
+    request.open('GET', 'script/data.json', true);
 
     request.onload = function() {
     if (this.status >= 200 && this.status < 400) {// Success!
