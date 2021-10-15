@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: white;
+}
+
+.header {
+    height: 64px;
+    margin: 25px auto;
+    text-align: center;
+}
+
+hr {
+    opacity: 0.25;
+}
+
+.container {
+    background-color: white;
+    width: 768px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.item {
+    background-color: white;
+    height: 256px;
+    width: 256px;
+    background-size: cover;
+}
+
+img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@media (orientation: portrait) {
+    .container {
+        width: 100%;
+    }
+
+    .item {
+        height: 33.333vw;
+        width: 33.333vw;
+    }
+}
