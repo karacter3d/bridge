@@ -1,36 +1,21 @@
-//Here lies the bad code of karatcer 3d :D
-
-var data, keysLeft;
+var keysLeft = 0;
 var keys = [];
 var feed = 0;
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'script/data.json', true);
+    
+    for (j in links) {
+        keysLeft++;
+    }
+    
+    var index = keysLeft - 1;
+    
+    for (j in links) {
+        keys[index] = j;
+        index--;
+    }
 
-    request.onload = function() {
-    if (this.status >= 200 && this.status < 400) {// Success!
-        data = JSON.parse(this.response);
-        keysLeft = Object.keys(data).length;
-
-        var index = keysLeft - 1;
-
-        for (j in data) {
-            keys[index] = j;
-            index--;
-        }
-
-        addDivs(); //Tries to add 20 div elements to .container div
-    } else {
-        // We reached our target server, but it returned an error
-        }
-    };
-
-    request.onerror = function() {
-    // There was a connection error of some sort
-    };
-
-    request.send();
+    addDivs(); //Tries to add 20 div elements to .container div
 })
 
 //scroll event on window. if cond. = true when scrollbar reaches to the bottom minus some offset i.e. 2
@@ -39,13 +24,6 @@ window.onscroll = function(ev) {
         addDivs();
     }
 };
-
-/*
-$(window).scroll(function () {
-    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        addDivs()
-    }
-});*/
 
 function addDivs () {
     var length = 20;
@@ -59,7 +37,7 @@ function addDivs () {
     for (i = 0; i < length; i++) {
         (function () {
             div[i] = document.createElement("div");
-            var link = data[keys[feed]];
+            var link = links[keys[feed]];
             div[i].className = 'item';
             div[i].style.backgroundImage = "url('image/" + keys[feed] + ".jpg')";
             
