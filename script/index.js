@@ -83,7 +83,6 @@ function loadDivs () {
         keysLeft--;
         feed++;
     }
-    console.log("in load divs");
 }
 
 function showDivs () {
