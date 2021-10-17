@@ -1,3 +1,4 @@
+//var links is defined in links.js
 var keysLeft = 0; //holds the number of keys left for processing
 var keys = []; //holds all the keys
 var feed = 0; //iterator for keys[]
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     addDivs(); 
 })
 
-//ccroll event on window. if (cond.) == true when scrollbar reaches to the bottom minus some offset i.e. 2
+//scroll event on window. if (cond.) == true when scrollbar reaches to the bottom minus some offset i.e. 2
 window.onscroll = function(ev) {
     if (((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) && keysLeft > 0) {
         addDivs();
