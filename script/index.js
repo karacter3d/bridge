@@ -1,33 +1,36 @@
-var keysLeft = 0;
-var keys = [];
-var feed = 0;
-var divs = [];
-var isEnd = false;
+var keysLeft = 0; //holds the number of keys left for processing
+var keys = []; //holds all the keys
+var feed = 0; //iterator for keys[]
 
+//counts the number of key-value pairs in links.js and make a seperate array for keys.
 document.addEventListener('DOMContentLoaded', function(event) {
+    var index = 0;
     
     for (j in links) {
         keysLeft++;
     }
     
-    var index = keysLeft - 1;
-    
+    index = keysLeft - 1;
+
+    //adds keys in reverse because javascript sorts sequential numneric keys in ascending order, but descending is needed. 
     for (j in links) {
         keys[index] = j;
         index--;
     }
 
-    loadnShow(); //Tries to add 20 div elements to .container div
+    //render the first 20 divs
+    addDivs(); 
 })
 
-//scroll event on window. if cond. = true when scrollbar reaches to the bottom minus some offset i.e. 2
+//ccroll event on window. if (cond.) == true when scrollbar reaches to the bottom minus some offset i.e. 2
 window.onscroll = function(ev) {
-    if (((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) && isEnd == false) {
-        showDivs();
+    if (((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) && keysLeft > 0) {
+        addDivs();
     }
 };
 
-function loadnShow () {
+//tries to add 20 div elements into <div class="container">
+function addDivs () {
     var length = 20;
 
     if (keysLeft < 20) {
@@ -39,61 +42,17 @@ function loadnShow () {
     for (i = 0; i < length; i++) {
         (function () {
             div[i] = document.createElement("div");
-            var link = links[keys[feed]];
-            div[i].className = 'item';
-            div[i].style.backgroundImage = "url('image/" + keys[feed] + ".jpg')";
-            
+            var link = links[keys[feed]]; //assigning link associated with the particular key
+            div[i].className = 'item'; //.item propeties are defined in index.css
+            div[i].style.backgroundImage = "url('image/" + keys[feed] + ".jpg')"; //assigning image path
             div[i].addEventListener('click', function() {
-                window.open(link, "_blank");
+                window.open(link, "_blank"); //opens new link in new tab
             }, false);
             
             document.getElementsByClassName('container')[0].appendChild(div[i]);
-        }()); // immediate invocation
+        }()); //anonymous function for tackling closure on var link
+        
         keysLeft--;
         feed++;
     }
-
-    if(keysLeft > 0)
-        loadDivs();
-}
-
-function loadDivs () {
-
-    var length = 20;
-
-    if (keysLeft < 20) {
-        length = keysLeft;
-    }
-    
-    divs = [length];
-
-    for (i = 0; i < length; i++) {
-        (function () {
-            divs[i] = document.createElement("div");
-            var link = links[keys[feed]];
-            divs[i].className = 'item';
-            divs[i].style.backgroundImage = "url('image/" + keys[feed] + ".jpg')";
-            
-            divs[i].addEventListener('click', function() {
-                window.open(link, "_blank");
-            }, false);
-            
-            //document.getElementsByClassName('container')[0].appendChild(div[i]);
-        }()); // immediate invocation
-        keysLeft--;
-        feed++;
-    }
-}
-
-function showDivs () {
-    for (i = 0; i < divs.length; i++) {
-        (function () {
-            document.getElementsByClassName('container')[0].appendChild(divs[i]);
-        }()); // immediate invocation
-    }
-
-    if(keysLeft > 0)
-        loadDivs();
-    else
-        isEnd = true;
 }
