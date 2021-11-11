@@ -1,4 +1,5 @@
 //var links is defined in links.js
+
 var keysLeft = 0; //holds the number of keys left for processing
 var keys = []; //holds all the keys
 var feed = 0; //iterator for keys[]
