@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 //scroll event on window. if (cond.) == true when scrollbar reaches to the bottom minus some offset i.e. 2
 window.onscroll = function(ev) {
-    if (((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 2) && keysLeft > 0) {
+    if (((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 2) - 2) && keysLeft > 0) {
         addDivs();
     }
 };

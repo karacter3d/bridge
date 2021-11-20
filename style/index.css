@@ -4,26 +4,21 @@
 }
 
 body {
-    background-color: white;
+    background-color: rgb(13, 13, 13);
 }
 
 .header {
-    height: 64px;
-    margin: 25px auto;
+    margin: 21px auto;
     text-align: center;
 }
 
 .header > img {
-    height: 64px;
-    width: 64px;
-}
-
-hr {
-    opacity: 0.25;
+    height: 34px;
+    width: 34px;
 }
 
 .container {
-    background-color: white;
+    background-color: rgb(13, 13, 13);
     width: 768px;
     display: flex;
     margin-left: auto;
@@ -33,7 +28,7 @@ hr {
 }
 
 .item {
-    background-color: white;
+    background-color: rgb(13, 13, 13);
     height: 256px;
     width: 256px;
     background-size: cover;
