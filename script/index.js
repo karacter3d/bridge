@@ -4,7 +4,7 @@ var keysLeft = 0; //holds the number of keys left for processing
 var keys = []; //holds all the keys
 var feed = 0; //iterator for keys[]
 
-//counts the number of key-value pairs in links.js and make a seperate array for keys.
+//counts the number of key-value pairs in links.js and makes a seperate array for keys.
 document.addEventListener('DOMContentLoaded', function(event) {
     var index = 0;
     
