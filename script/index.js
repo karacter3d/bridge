@@ -29,8 +29,6 @@ window.onscroll = function(ev) {
     if (((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight / 2) - 2) && keysLeft > 0) {
         addDivs();
     }
-    var logo = document.getElementById("logo");
-    logo.style.transform = "rotate("+ window.pageYOffset + "deg)";
 };
 
 //tries to add 20 div elements into <div class="container">
