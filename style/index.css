@@ -28,10 +28,18 @@ body {
 }
 
 .item {
+    box-sizing: border-box;
     background-color: rgb(13, 13, 13);
     height: 256px;
     width: 256px;
     background-size: cover;
+    transition: border;
+    -webkit-transition: border;
+    -moz-transition: border;
+}
+
+.item:active{
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 img {
