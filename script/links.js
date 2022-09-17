@@ -1,4 +1,5 @@
 var  links = {
+    1096: "https://www.artstation.com/artwork/eJq8PG",
     1095: "https://www.artstation.com/artwork/zDr2lQ",
     1094: "https://www.artstation.com/artwork/wJ9a0g",
     1093: "https://www.artstation.com/artwork/klXd56",
